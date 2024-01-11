@@ -1,3 +1,9 @@
-export const apiKey = "3095faec";
 
 // OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=3095faec
+
+
+import axios from "axios";
+
+export default  axios.create({
+    baseURL: "http://www.omdbapi.com",
+}) 
