@@ -3,9 +3,13 @@ import MovieList from "../MovieList/MovieList";
 import axios from "axios";
 import movieApi from "../../common/apis/movieApi";
 import { apiKey } from "../../common/apis/movieApiKey";
+import { useDispatch } from "react-redux";
+import { addMovies } from "../../features/movies/movieslice";
 
 function Home() {
   const searchMovie = "Harry";
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
     //  axios.get(`?apiKey=${apiKey}&s=${searchMovie}&type=movie`).then((data)=>{
@@ -22,11 +26,13 @@ function Home() {
         .catch((error) => {
           console.log(error);
         });
-      console.log(response);
+      // console.log(response);
+      dispatch(addMovies(response.data))    
     };
-
     fetchMovies();
+
   }, []);
+
 
   return (
     <>
