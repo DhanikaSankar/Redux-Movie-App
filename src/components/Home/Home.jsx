@@ -12,14 +12,6 @@ function Home() {
 
 
   useEffect(() => {
-    //  axios.get(`?apiKey=${apiKey}&s=${searchMovie}&type=movie`).then((data)=>{
-    //   console.log(data);
-    //  }).catch((error)=>{
-    //   console.log(error);
-    //  })
-
-    // Using fetch method
-
     const fetchMovies = async () => {
       const response = await movieApi
         .get(`?apiKey=${apiKey}&s=${searchMovie}&type=movie`)
